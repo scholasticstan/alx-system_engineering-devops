@@ -1,2 +1,2 @@
 #!/bin/bash
-ALX system engineering basicss
+ALX system engineering basics
