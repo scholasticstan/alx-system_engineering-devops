@@ -29,16 +29,67 @@ The mointoring tool used in collecting data is Agent-based Monitoring
 
 # Explain what to do if you want to monitor your web server QPS
 
-Choose a Monitoring Solution: Select a suitable monitoring tool from options like Prometheus, Nagios, Zabbix, Datadog, or New Relic.
+1. Choose a Monitoring Solution: Select a suitable monitoring tool from options like Prometheus, Nagios, Zabbix, Datadog, or New Relic.
 
-Install and Configure: Set up the monitoring tool on your web server by installing an agent or exporter and following the tool's documentation for configuration.
+2. Install and Configure: Set up the monitoring tool on your web server by installing an agent or exporter and following the tool's documentation for configuration.
 
-Identify QPS Metric: Determine the metric or performance counter representing QPS based on your web server software, such as mod_status for Apache HTTP Server or stub_status for NGINX.
+3. Identify QPS Metric: Determine the metric or performance counter representing QPS based on your web server software, such as mod_status for Apache HTTP Server or stub_status for NGINX.
 
-Configure Data Collection: Specify the data source and extraction method for the QPS metric in the monitoring tool's configuration.
+4. Configure Data Collection: Specify the data source and extraction method for the QPS metric in the monitoring tool's configuration.
 
-Set Up Alerting: Configure alerts for exceeding QPS thresholds or detecting anomalies.
+5. Set Up Alerting: Configure alerts for exceeding QPS thresholds or detecting anomalies.
 
-Visualize and Analyze Data: Utilize the monitoring tool's visualization features to track QPS trends, identify peak usage, and uncover performance issues.
+6. Visualize and Analyze Data: Utilize the monitoring tool's visualization features to track QPS trends, identify peak usage, and uncover performance issues.
 
-Fine-tune and Optimize: Regularly monitor QPS metrics, make adjustments, and optimize server capacity, caching, database queries, and application code to improve performance.
+7. Fine-tune and Optimize: Regularly monitor QPS metrics, make adjustments, and optimize server capacity, caching, database queries, and application code to improve performance.
+
+# Why terminating SSL at the load balancer level is an issue
+
+Terminating SSL at the load balancer level can pose issues:
+
+1. End-to-End Encryption: Breaks encryption between load balancer and backend servers, compromising data security.
+
+2. Data Security and Compliance: Violates security and compliance requirements that mandate end-to-end encryption.
+
+3. Loss of Client Authentication: Backend servers lose access to client authentication information.
+
+4. Increased Load Balancer Processing: Adds computational load on the load balancer, affecting performance and scalability.
+
+5. Backend Server Overhead: Makes it difficult to perform certain tasks and monitor SSL-related metrics.
+
+6. Limited Flexibility: Restricts the use of advanced SSL/TLS features at the backend server level.
+
+# Why having only one MySQL server capable of accepting writes is an issue
+
+Having only one writable MySQL server can be problematic due to:
+
+1. Single Point of Failure: Increased risk of downtime and data loss.
+
+2. Limited Scalability: Inability to handle high write traffic efficiently.
+Lack of High Availability: No automatic failover mechanism during server unavailability.
+
+3. Data Consistency Challenges: Difficulty in maintaining data consistency in distributed systems.
+
+4. Concurrency and Performance Limitations: Contention and decreased performance during concurrent writes.
+
+5. Scalability and Load Balancing: Inability to distribute write load and ensure consistent performance.
+
+6. Implementing replication, clustering, or sharding can mitigate these issues by providing fault tolerance, scalability, and improved performance.
+
+# Why having servers with all the same components (database, web server and application server) might be a problem
+
+Having servers with all the same components (database, web server, and application server) can lead to issues such as:
+
+1. Lack of separation and troubleshooting difficulties.
+
+2. Limited scalability and inefficient resource allocation.
+
+3. Performance bottlenecks due to resource contention.
+
+4. Reduced fault isolation and increased downtime risk.
+
+5. Challenges with maintenance and upgrades.
+
+6. Restrictions on technology stack and flexibility.
+
+Adopting a modular and distributed architecture mitigates these issues, providing better scalability, fault isolation, performance optimization, and flexibility in managing components.
