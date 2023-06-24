@@ -1,2 +1,1 @@
-#!/bin/bash
-ALX system engineering basics
+0x0A-configuration_management
