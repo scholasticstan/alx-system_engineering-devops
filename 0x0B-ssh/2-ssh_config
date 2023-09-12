@@ -7,4 +7,4 @@ Host *
     HashKnownHosts yes
     GSSAPIAuthentication yes
     HostName 54.160.93.80
-    User ubuntu
+    User ubuntu 
